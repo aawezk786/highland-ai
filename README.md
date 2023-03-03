@@ -1,7 +1,9 @@
 # STEPS:
 
 1.pip3 install -r requirements.txt
+
 2.pip3 install "git+https://github.com/openai/whisper.git"
+
 3.apt-get install -y ffmpeg / brew install ffmpeg
 
 # DOCKER:
