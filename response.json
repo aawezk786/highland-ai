@@ -1,0 +1,31 @@
+{
+    "text": "Hello, my name is Hachoshi Sound.",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.0,
+            "end": 3.4,
+            "text": " Hello, my name is Hachoshi Sound.",
+            "tokens": [
+                50364,
+                2425,
+                11,
+                452,
+                1315,
+                307,
+                389,
+                608,
+                17392,
+                14673,
+                13,
+                50534
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7543839674729568,
+            "compression_ratio": 0.8048780487804879,
+            "no_speech_prob": 0.00997964572161436
+        }
+    ],
+    "language": "ja"
+}
