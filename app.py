@@ -2,6 +2,7 @@ from flask import Flask, abort, request
 from tempfile import NamedTemporaryFile
 import whisper
 import torch
+from gingerit.gingerit import GingerIt
 
 # Check if NVIDIA GPU is available
 torch.cuda.is_available()
@@ -37,7 +38,7 @@ def handler():
     for filename, handle in request.files.items():
         # Create a temporary file.
         # The location of the temporary file is available in `temp.name`.
-        temp = NamedTemporaryFile()
+        temp = NamedTemporaryFile(delete=False)
         # Write the user's uploaded file to the temporary file.
         # The file will get deleted when it drops out of scope.
         handle.save(temp)
@@ -49,10 +50,13 @@ def handler():
         #     langaugeTranscribe = model.transcribe(
         #         temp.name, task=task, langauge=langauge)
         result = model.transcribe(temp.name, task=task)
-        print(result)
+        # print(result)
+        corrected_text = GingerIt().parse('I loving English. Teacher my is best')
+        print(corrected_text)
         # Now we can store the result object for this file.
         results.append({
             'filename': filename,
+            'correction': corrected_text['result'],
             'transcript': result['text'],
             'language': result['language']
         })
